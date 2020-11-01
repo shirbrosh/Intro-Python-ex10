@@ -1,0 +1,59 @@
+shir_brosh
+316124767
+Shir Brosh
+
+I discussed the exercise with: Gadi Fleischer, Ortal Glatt.
+
+=============================
+=  README for ex10:   =
+=============================
+1. The first thing i had to consider was whether to reassign new attributes to the Torpedo object (in the __init__),
+    or to import the relevant features from the Ship class.
+    finally i choose creating the features and assigning them the suitable values from Ship.
+    I think the advantage of choosing to import from Ship is to evade code duplicate, but i realized
+    the code duplicate will be very small and i'm gaining a code that is easier to understand and change.
+2.Next i had a dilemma on how to build the move functions, again there was a conflict between
+    evading code duplicate or making it easier to understand and change. here I also chose to duplicate the code
+    a bit to make it easier to understand, yet still trying to make it as effective as possible by
+    using the function 'move_object' that unite the 3 move functions for each object.
+3.The same goes for the has_intersection functions i chose to divide the intersect for asteroids and ships
+    from the intersect for asteroids and torpedos, because although its a code duplicate it is easier to
+    understand and change.
+==================
+=  Description: =
+==================
+ship.py -
+    A class defending Ship object- all the functions in this class is get and set functions, which help
+    import the ship's attributes and set new ones.
+asteroids.py -
+     A class defending Asteroid object- all the functions in this class is get and set functions, which help
+    import the Asteroid's attributes and set new ones.
+torpedo.py -
+    A class defending Torpedo object- all the functions in this class is get and set functions, which help
+    import the Torpedo's attributes and set new ones.
+asteroids_main.py-
+contains a class GameRunner that builds the game and the main function. GameRunner contains the following functions:
+    create_ship\asteroid- A function that creates the ship\asteroid object in the game.
+    move_ship\asteroid\torpedo- A function that moves a Ship\asteroid\torpedo object.
+    move_object- A function that calculate the parameter 'delta' in the move objects
+        calculation and calls the functions 'move_ship' and 'move_asteroid'.
+    change_deg_right\left- A function that changes the angle of a ship object to the right\left.
+    rad_trans- A function that receives an angle in degrease and transfer it to radians.
+    speed_up- A function that changes the speed of a Ship object.
+    after_intersection_ship\tor_ast- A function that updates the game if a ship\torpedo intersected
+        an asteroid.
+    calculate_new_speed_for_split- A function that calculates the speed for an asteroid after a split.
+    splitting_asteroid- A function that creates new asteroids after an intersect with a torpedo.
+    remove_asteroid/torpedo- A function that removes an asteroid/torpedo object from the game
+    shoot- A function that operates the shoot of the torpedo.
+    set_score- A function that sets the game's score to the received parameter score.
+    score- A function that calculates the new score and sets it using the function
+        'set_score'.
+    end_game- A function that determines whether the game has ended and prints a
+        suitable massage.
+    call_for_draw_ship- A function that calls for the draw ship function, just to make the
+        functions- 'which_move' and '_game_loop' shorter.
+    teleport- A function that teleports the ship to a random location on the board.
+    which_move- A function that checks which key the player is pressing and activates the
+        suitable changing function.
+    _game_loop- A function that runs the game
